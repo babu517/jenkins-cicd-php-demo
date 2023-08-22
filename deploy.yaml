@@ -6,7 +6,7 @@
   tasks:
     - name: Copy PHP files to the web server
       copy:
-        src: 'https://github.com/babu517/jenkins-cicd-php-demo/blob/main/index.php'
+        src: /root/ansible/php/templates/virtualhost.conf.j2
         dest: /var/www/html/
         
     - name: Ensure the web server is running
