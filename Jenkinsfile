@@ -9,7 +9,7 @@ pipeline {
     stage('Deploy') {
             steps {
                 // Run Ansible playbook to deploy the application
-                sh 'ansible-playbook -i /etc/ansible/hosts 'https://github.com/babu517/jenkins-cicd-php-demo/blob/main/deploy.yaml''
+                sh 'ansible-playbook -i /etc/ansible/hosts 'https://github.com/babu517/jenkins-cicd-php-demo/blob/main/deploy.yaml'
             }
         }
 }
