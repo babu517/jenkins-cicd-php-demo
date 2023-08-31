@@ -9,7 +9,7 @@ pipeline {
     stage('Deploy') {
             steps {
                 // Run Ansible playbook to deploy the application
-                sh 'ansible-playbook -i deploy.yaml /etc/ansible/hosts'
+                sh 'ansible-playbook -i dev.in deploy.yaml'
             }
         }
 }
