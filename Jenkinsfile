@@ -8,10 +8,17 @@ pipeline {
         }
     stage('Deploy') {
             steps {
+                script {
+
+                // Define your Ansible playbook command
+                    def ansiblePlaybookCommand = """
+                        ansible-playbook -i dev.ini deploy.yaml
+                    """
+                    // Execute the Ansible playbook command
                 // Run Ansible playbook to deploy the application
                 sh 'ansible-playbook -i dev.inv deploy.yaml'
             }
         }
+     }
 }
-
 }
