@@ -6,11 +6,11 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/babu517/jenkins-cicd-php-demo.git']]])
             }
         }
-        stage('Maven Build'){
-            steps{
-                sh "mvn clean install"
-            }
-        }
+       stage('Execute Playbook'){
+           steps{
+               ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'deploy.yaml'
+           }
+       }
         stage('Deploy') {
             steps {
                 script {
