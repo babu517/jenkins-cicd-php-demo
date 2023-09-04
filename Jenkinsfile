@@ -6,7 +6,12 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/babu517/jenkins-cicd-php-demo.git']]])
             }
         }
-    stage('Deploy') {
+        stage('Maven Build'){
+            steps{
+                sh "mvn clean install"
+            }
+        }
+        stage('Deploy') {
             steps {
                 script {
 
