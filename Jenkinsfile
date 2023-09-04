@@ -1,9 +1,6 @@
 pipeline {
     agent any
-
-    environment {
-        ANSIBLE_HOME = tool name: 'ansible2', type: 'Tool'
-    }
+  
        stages {
         stage('git clone'){
             steps{
@@ -12,7 +9,7 @@ pipeline {
         }
        stage('Execute Playbook'){
            steps{
-               ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: "${ANSIBLE_HOME}", inventory: 'dev.inv', playbook: 'deploy.yaml'
+               ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'deploy.yaml'
            }
        }
     }
