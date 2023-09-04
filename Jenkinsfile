@@ -12,7 +12,7 @@ pipeline {
 
                 // Define your Ansible playbook command
                     def ansiblePlaybookCommand = """
-                        ansible-playbook -i dev.ini deploy.yaml
+                        ansible-playbook -i dev.inv deploy.yaml
                     """
                     // Execute the Ansible playbook command
                 // Run Ansible playbook to deploy the application
